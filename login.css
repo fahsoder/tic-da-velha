@@ -1,0 +1,107 @@
+html {
+    max-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-image: linear-gradient(#3C3B3F, #605C3C);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: 'Indie Flower', cursive;
+    overflow: hidden;
+}
+
+.content {
+    width: 65%;
+    height: 100%;
+    background-image: url("cwi-login.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    position: absolute;
+    font-size: 72px;
+    font-weight: 20px;
+    color: beige;
+    display: flex;
+    left: 200px;
+    top: 250px;
+}
+
+.form {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: beige;
+    padding-bottom: 50px;
+}
+
+.user-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.password-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    width: 58%;
+    display: flex;
+    justify-content: flex-start;
+    color: beige;
+    font-size: 25px;
+}
+
+.input {
+    font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 6px;
+    height: 40px;
+    width: 60%;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.login-button {
+    font-family: 'Indie Flower', cursive;
+    height: 40px;
+    width: 60%;
+    background-color: beige;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-size: 25px;
+    font-weight: bold;
+}
