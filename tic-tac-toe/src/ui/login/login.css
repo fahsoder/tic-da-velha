@@ -1,32 +1,35 @@
 .content-bg {
     position: absolute;
-    width: 100%;
+    width: 60%;
     height: 100%;
     background-image: url("../../assets/img.png");
-    background-size: 60%;
+    background-size: 90%;
     background-repeat: no-repeat;
     opacity: 0.2;
     left: 0;
-    top: 5%;
+    z-index: 1;
 }
 
 .content {
-    width: 40%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
+    z-index: 100;
 }
 
 .title {
-    width: 100%;
-    font-size: 72px;
+    width: 60%;
+    font-size: 100px;
     font-weight: 20px;
     color: beige;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-shadow: 10px 10px 1px darkslategray;
 }
 
 .form {
-    width: 100%;
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -46,33 +49,27 @@
 }
 
 .user-input {
+    margin-top: 30px;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.password-input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
 }
 
 .label {
-    width: 58%;
+    width: 40%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     color: beige;
-    font-size: 25px;
+    font-size: 20px;
+    margin-right: 10px;
 }
 
 .input {
     font-family: 'Indie Flower', cursive;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
     padding-left: 6px;
     height: 40px;
     width: 60%;
@@ -81,10 +78,22 @@
     outline: none;
 }
 
+.user-alert {
+    width: 60%;
+    color: red;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.no-user-alert {
+    width: 60%;
+    display: none;
+}
+
 .login-button {
     font-family: 'Indie Flower', cursive;
     height: 40px;
-    width: 60%;
+    width: calc(60% - 4px);
     background-color: beige;
     color: black;
     border: none;
@@ -92,4 +101,11 @@
     outline: none;
     font-size: 25px;
     font-weight: bold;
+    margin-top: 15px;
+}
+
+.button-content {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 }
