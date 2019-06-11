@@ -14,6 +14,7 @@ body {
     padding: 0;
     display: flex;
     font-family: 'Indie Flower', cursive;
+    letter-spacing: 0.2em;
     overflow: hidden;
 }
 
@@ -82,6 +83,7 @@ body {
 
 .input {
     font-family: 'Indie Flower', cursive;
+    letter-spacing: 0.2em;
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
