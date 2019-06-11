@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="home.css">
+        <script src="home.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="content">
+        </div>
+        <h1>TIC DA VELHA</h1>
+        <div class="dificult-form" id="select-mode" hidden>
+            <span class="title">Modo:</span>
+            <button class="button" id="singlePlayer" onClick="selectPlayer(1)">
+                1 player
+            </button>
+            <button class="button" id="multiPlayer" onClick="selectPlayer(2)">
+                2 players
+            </button>
+        </div>
+
+        <div id="singlePlayerGame" hidden=true>
+            SINGLE PLAYER
+        </div>
+        <div id="multiPlayerGame" hidden>
+            MULTI PLAYER
+        </div>
+    </body>
+</html>

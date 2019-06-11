@@ -1,5 +1,33 @@
+html {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: linear-gradient(#3C3B3F, #605C3C);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-family: 'Indie Flower', cursive;
+  letter-spacing: 0.2em;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+
 }
 
 .App-logo {
