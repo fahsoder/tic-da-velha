@@ -1,0 +1,99 @@
+body {
+    background:#BAD8B6;
+    margin:0;
+    color:#01352C;
+  }
+  table {
+    margin:100px auto;
+    border-collapse:collapse;
+    border:5px solid #BAD8B6;
+  }
+  td {
+    height:120px;
+    width:120px;
+    border:solid 2px #01352C;
+    text-align:center;
+    font-size:62px;
+    transition:1s;
+  }
+  
+  button {
+    margin:10px 50px 20px 50px;
+    border:2px solid #E1EACD;
+    border-radius:10px;
+    width:130px;
+    background:#BAD8B6;
+    font-size:18px;
+    transform: scale(1);
+    transition:0.2s ease;  
+  }
+  button:hover {
+    transform: scale(1);
+    background:#E1EACD;
+    border:2px solid #BAD8B6;
+  }
+  button:active {
+    transform:scale(0.7);
+  }
+  button:focus {
+    outline:none;
+    box-shadow: 0 0 5px 3px #E3FCDB;
+  }
+  
+  .options {
+    z-index:5; 
+    position:absolute;
+    top:0;
+    font-size:20px;
+    background:#E1EACD;
+    border-bottom:8px solid #61B390;
+    padding:50px;
+    width:100%;
+    height:150px;
+    transition:1s;
+    box-shadow:0 0 10px #01352C;
+    overflow:hidden;
+  }
+  .retract {
+    background:#61B390;
+    height:40px;
+    padding:10px;
+    overflow:hidden;
+    border-bottom:5px solid #E1EACD;
+  }
+  
+  
+  input[type=radio] {
+    display:none;
+  }
+  input {
+    display:none;
+  }
+  
+  label {
+    cursor:pointer;
+    margin:4px 10px;
+  }
+  input[type='radio'] + label span:nth-child(1) {
+   position:relative;
+   left:25px;
+   visibility:hidden;
+  }
+  input[name="players"] + label span:nth-child(2) {
+   position:relative;
+   left:5px; 
+   color:#23685F;
+   }
+  input[type="radio"] + label span:nth-child(2) {
+   position:relative;
+   color:#23685F;
+   }
+  
+  input[type="radio"]:checked + label span:nth-child(1) {
+    visibility:visible;
+    color:#000;
+    text-shadow:0 0 5px #61B390;
+  }
+  input[type="radio"]:checked + label span:nth-child(2) {
+    visibility:hidden;
+  }
