@@ -31,16 +31,23 @@ export class Login extends Component {
     })
   }
 
-  onFocus = () => {
-    this.setState({
-      loginFirstUserError: 'no-user-alert'
-    })
+  onFocus = (e) => {
+    const target = e.target
+    if(target.name == "user"){
+      this.setState({
+        loginFirstUserError: 'no-user-alert'
+      })
+    }
+    if(target.name == "secondUser"){
+      this.setState({
+        loginSecondUserError: 'no-user-alert'
+      })
+    }
   }
 
   login = (e) => {
     e.preventDefault()
-
-    if(this.state.numberOfPlayers === 1) {
+    if(this.state.numberOfPlayers == 1) {
       if(this.state.user) {
         this.setState({
           context: 'single-player'
@@ -50,7 +57,7 @@ export class Login extends Component {
           loginFirstUserError: 'user-alert'
         })
       }
-    } else if(this.state.numberOfPlayers === 2) {
+    } else if(this.state.numberOfPlayers == 2) {
       if(this.state.secondUser && this.state.user) {
         this.setState({
           context: 'multi-player'
@@ -60,17 +67,14 @@ export class Login extends Component {
           this.setState({
             loginSecondUserError: 'user-alert'
           })
-        } else {
+        } 
+        if (!this.state.user){
           this.setState({
             loginFirstUserError: 'user-alert'
           })
         }
       }
-    } else {
-      this.setState({
-        context: 'game'
-      })
-    }
+    } 
   }
 
   selectPlayer = (e) => {
@@ -86,7 +90,7 @@ export class Login extends Component {
         <label className="user-input">
           <div className="user-input-field">
             <span className="label">Jogador 1</span>
-            <input name="user" type="text" className="input" onFocus={this.onFocus} onChange={this.onChange} value={this.props.user} />
+            <input name="user" type="text" className="input" onFocus={this.onFocus} onChange={this.onChange} value={this.state.user} />
             <label className={this.state.loginFirstUserError}>
               Informe o nome do jogador 1
             </label>
@@ -122,15 +126,15 @@ export class Login extends Component {
               </label>
               <label className="user-input" >
                 <div className="radio">
-                  <label>
-                  <input type="radio" hidden name="optradio" id="1" className="radio" checked={this.state.numberOfPlayers == 1} onClick={this.selectPlayer} value="1"/>
-                  <label for="1">Solo</label>
+                  <label htmlFor="1">
+                  <input type="radio" hidden name="optradio" id="1" className="radio" readOnly checked={this.state.numberOfPlayers == 1} onClick={this.selectPlayer} value="1"/>
+                  <label htmlFor="1">Solo</label>
                   </label>
                 </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" hidden name="optradio" id="2" className="radio" checked={this.state.numberOfPlayers == 2} onClick={this.selectPlayer} value="2"/>
-                    <label for="2">Versus</label>
+                <div className="radio">
+                  <label htmlFor="2">
+                    <input type="radio" hidden name="optradio" id="2" className="radio" readOnly checked={this.state.numberOfPlayers == 2} onClick={this.selectPlayer} value="2"/>
+                    <label htmlFor="2">Versus</label>
                   </label>
                 </div>
               </label>
@@ -147,12 +151,14 @@ export class Login extends Component {
   
   renderSinglePlayer = () => {
     return (
-      null
+      alert('jean erra tiro')
     )
   }
 
   renderMultiPlayer = () => {
-    return null
+    return (
+      alert('vini erra tiro')
+    )
   }
 
   render() {
