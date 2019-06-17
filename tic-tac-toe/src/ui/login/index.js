@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Component, Fragment } from 'react'
 
 import './login.css'
@@ -10,7 +11,8 @@ export class Login extends Component {
       user: '',
       secondUser: '',
       context: 'player-select',
-      loginError: 'no-user-alert',
+      loginFirstUserError: 'no-user-alert',
+      loginSecondUserError: 'no-user-alert',
       loginSuccess: false,
       numberOfPlayers: 1
     }
@@ -31,7 +33,7 @@ export class Login extends Component {
 
   onFocus = () => {
     this.setState({
-      loginError: 'no-user-alert'
+      loginFirstUserError: 'no-user-alert'
     })
   }
 
@@ -41,29 +43,32 @@ export class Login extends Component {
     if(this.state.numberOfPlayers === 1) {
       if(this.state.user) {
         this.setState({
-          context: 'game'
+          context: 'single-player'
         })
       } else {
         this.setState({
-          loginError: 'user-alert'
+          loginFirstUserError: 'user-alert'
         })
       }
-    }
-    if(this.state.numberOfPlayers === 2) {
+    } else if(this.state.numberOfPlayers === 2) {
       if(this.state.secondUser && this.state.user) {
         this.setState({
-          context: 'game'
+          context: 'multi-player'
         })
       } else {
-        this.setState({
-          loginError: 'user-alert'
-        })
+        if(!this.state.secondUser) {
+          this.setState({
+            loginSecondUserError: 'user-alert'
+          })
+        } else {
+          this.setState({
+            loginFirstUserError: 'user-alert'
+          })
+        }
       }
-    }
-    
-    else {
+    } else {
       this.setState({
-        loginError: 'user-alert'
+        context: 'game'
       })
     }
   }
@@ -73,26 +78,29 @@ export class Login extends Component {
     this.setState({
       numberOfPlayers: target.value
     })
-    console.log('xalxla', target.value)
   }
 
   renderLogin = () => {
     return (
       <Fragment>
         <label className="user-input">
+          <div className="user-input-field">
             <span className="label">Jogador 1</span>
             <input name="user" type="text" className="input" onFocus={this.onFocus} onChange={this.onChange} value={this.props.user} />
-            <label className={this.state.loginError}>
+            <label className={this.state.loginFirstUserError}>
               Informe o nome do jogador 1
             </label>
+          </div>
         </label>
         {this.state.numberOfPlayers == 2 ? 
-          <label className="user-input">
+          <label className="user-input user-input-less-space">
+            <div className="user-input-field">
               <span className="label">Jogador 2</span>
               <input name="secondUser" type="text" className="input" onFocus={this.onFocus} onChange={this.onChange} value={this.props.user} />
-              <label className={this.state.loginError}>
+              <label className={this.state.loginSecondUserError}>
                 Informe o nome do jogador 2
               </label>
+            </div>
           </label>
           : null
         }
@@ -108,15 +116,15 @@ export class Login extends Component {
             <h1 className="title">
                 TIC TAC TOE
             </h1>
-            <form action="home.html" className="form" method="post">
+            <form className="form">
               <label className="form-title">
                   Selecione a quantidade de jogadores
               </label>
-              <label className="user-input">
+              <label className="user-input" >
                 <div className="radio">
                   <label>
                   <input type="radio" hidden name="optradio" id="1" className="radio" checked={this.state.numberOfPlayers == 1} onClick={this.selectPlayer} value="1"/>
-                  <label for="1">1 Jogador</label>
+                  <label for="1">Solo</label>
                   </label>
                 </div>
                 <div class="radio">
@@ -138,7 +146,9 @@ export class Login extends Component {
   }
   
   renderSinglePlayer = () => {
-    return null
+    return (
+      null
+    )
   }
 
   renderMultiPlayer = () => {
@@ -146,9 +156,6 @@ export class Login extends Component {
   }
 
   render() {
-    if(this.state.context === 'login') {
-      return this.renderLogin()
-    }
     if(this.state.context === 'player-select') {
       return this.renderPlayerSelect()
     }
