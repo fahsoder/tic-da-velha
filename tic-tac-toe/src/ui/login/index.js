@@ -2,10 +2,9 @@
 import React, { Component, Fragment } from 'react'
 
 import './login.css'
+import '../game/index.css'
 
-import '../single-player/Game'
-import '../single-player/index.css'
-import Game from '../single-player/Game';
+import { Game } from '../game/Game';
 
 export class Login extends Component {
   constructor() {
